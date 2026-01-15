@@ -6,15 +6,37 @@
   "author": "",
   "type": "commonjs",
   "main": "index.js",
+  "imports": {
+    "#src/*": "./src/*",
+    "#config/*": "./src/config/*",
+    "#controllers/*": "./src/controllers/*",
+    "#middleware/*": "./src/middleware/*",
+    "#prisma/*": "./prisma/*",
+    "#routes/*": "./src/routes/*",
+    "#services/*": "./src/services/*",
+    "#utils/*": "./src/utils/*",
+    "#validations": "./src/validations/*"
+  },
   "scripts": {
     "dev": "nodemon src/server.ts",
     "build": "tsc",
-    "start": "node dist/server.js"
+    "start": "node dist/server.js",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
   },
   "devDependencies": {
+    "@eslint/js": "^9.39.2",
     "@types/express": "^5.0.6",
     "@types/node": "^25.0.8",
+    "@typescript-eslint/eslint-plugin": "^8.53.0",
+    "@typescript-eslint/parser": "^8.53.0",
+    "eslint": "^9.39.2",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.5",
     "nodemon": "^3.1.11",
+    "prettier": "^3.8.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.3"
   },
