@@ -74,3 +74,6 @@ Add following scripts
 "format": "prettier --write .",
 "format:check": "prettier --check .",
 ```
+
+
+npm i @prisma/client 
