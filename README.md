@@ -125,3 +125,11 @@ npx prisma db seed
 ```
 npx prisma studio
 ```
+
+- setup scripts
+```
+"scripts" : {
+  "prisma:migrate": "npx prisma migrate dev",
+  "prisma:studio" : "npx prisma studio"
+}
+```
