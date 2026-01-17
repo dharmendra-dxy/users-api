@@ -75,5 +75,53 @@ Add following scripts
 "format:check": "prettier --check .",
 ```
 
+### 5. Setup Database and Prisma
 
+- Comman will create a file : prisma/schema.prisma
+- Additionaly create file (id needed): prisma/seed.ts
+```
+npm install primsa
+npx prisma init   
+```
+
+- Generate Client
+
+```
 npm i @prisma/client 
+npx prisma generate
+```
+
+- Setup Prisma client in path: src/config/prisma.ts
+```
+import { PrismaClient } from '@prisma/client';
+
+const globalForPrisma = globalThis as unknown as {
+  prisma: PrismaClient | undefined;
+};
+
+export const prisma =
+  globalForPrisma.prisma ??
+  new PrismaClient({
+    log: ['query', 'info', 'warn', 'error'],
+  });
+
+if (process.env.NODE_ENV !== 'production') {
+  globalForPrisma.prisma = prisma;
+}
+
+export default prisma;
+```
+
+- Configure your schema, and migrate
+```
+npx prisma migrate dev --name change-name-as-per-user
+```
+-  seed your database with the initial data (if needed)
+```
+npx prisma db seed
+```
+
+- Open Prisma Studio to inspect your data
+```
+npx prisma studio
+```
