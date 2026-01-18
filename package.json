@@ -7,7 +7,6 @@
   "type": "commonjs",
   "main": "index.js",
   "imports": {
-    "#src/*": "./src/*",
     "#config/*": "./src/config/*",
     "#controllers/*": "./src/controllers/*",
     "#middleware/*": "./src/middleware/*",
@@ -22,7 +21,7 @@
     "build": "tsc",
     "start": "node dist/server.js",
     "prisma:migrate": "npx prisma migrate dev",
-    "prisma:studio" : "npx prisma studio",
+    "prisma:studio": "npx prisma studio",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "format": "prettier --write .",
@@ -30,7 +29,10 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.39.2",
+    "@types/cookie-parser": "^1.4.10",
+    "@types/cors": "^2.8.19",
     "@types/express": "^5.0.6",
+    "@types/morgan": "^1.9.10",
     "@types/node": "^25.0.8",
     "@typescript-eslint/eslint-plugin": "^8.53.0",
     "@typescript-eslint/parser": "^8.53.0",
@@ -45,7 +47,12 @@
   },
   "dependencies": {
     "@prisma/client": "^7.2.0",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
     "dotenv": "^17.2.3",
-    "express": "^5.2.1"
+    "express": "^5.2.1",
+    "helmet": "^8.1.0",
+    "morgan": "^1.10.1",
+    "winston": "^3.19.0"
   }
 }

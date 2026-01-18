@@ -133,3 +133,11 @@ npx prisma studio
   "prisma:studio" : "npx prisma studio"
 }
 ```
+
+### 6. Setup loggers and middlewares
+- winston logger
+- morgan
+- helmet
+- cors
+- cookie-parser
+
