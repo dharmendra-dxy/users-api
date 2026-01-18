@@ -1,12 +1,14 @@
 import "dotenv/config";
-import type { Request, Response } from "express";
 import express from "express";
 import helmet from "helmet";
 import morgan from "morgan";
 import cors from "cors";
 import cookieParser from "cookie-parser";
+
 import corsConfig from "./config/cors";
 import logger from "./config/logger";
+
+import router from "./routes";
 
 const app = express();
 
@@ -21,11 +23,7 @@ app.use(cookieParser())
 app.use(morgan("combined", {stream: {write: (message) => logger.info(message.trim())}}))
 
 
-app.get("/", (req: Request, res: Response)=> {
-  res.json({
-    message: "Welcome to users-api",
-    success:true,
-  })
-})
+
+app.use("/api", router)
 
 export default app;
